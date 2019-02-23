@@ -6,11 +6,13 @@
   "scripts": {
     "test": "jest --coverage --config=unitTestsJestConfig.json",
     "lint": "eslint \"./**/*.js\" --fix",
-    "test:acceptance": "TEST_MODE=http TEST_BASE_URL='https://r31ac7b917.execute-api.eu-west-1.amazonaws.com/devregiluze/api' jest ./tests/*",
     "pretest": "npm run lint",
     "posttest": "npm audit",
     "deploy": "serverless deploy --aws-profile serverless-local",
+    "deploy:sit": "serverless deploy --stage sit",
+    "deploy:prod": "serverless deploy --stage prod",
     "test:integration": "TEST_MODE=handler jest ./tests/*",
+    "test:acceptance": "TEST_MODE=http jest ./tests/*",
     "seedMasters": "node seedMasters.js masters-devregiluze"
   },
   "author": "Vicenc Garcia Altes",
